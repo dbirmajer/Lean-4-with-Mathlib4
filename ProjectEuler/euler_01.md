@@ -1,10 +1,16 @@
+# mathlib4
+
+[Mathlib](https://leanprover-community.github.io) is a user maintained library for the [Lean theorem prover](https://leanprover.github.io).
+It contains both programming infrastructure and mathematics,
+as well as tactics that use the former and allow to develop the latter.
+
 # Project Euler 1 in Lean 4
 
 Project Euler Problem 1 asks for the sum of all natural numbers below `1000` that are divisible by `3` or `5`.
 
 ## The Lean file
 
-The code for this post lives in [`ProjectEuler/Problem01.lean`](../ProjectEuler/Problem01.lean).
+The code for this post lives in [`ProjectEuler/euler_01.lean`](../ProjectEuler/euler_01.lean).
 
 ```lean
 import Mathlib

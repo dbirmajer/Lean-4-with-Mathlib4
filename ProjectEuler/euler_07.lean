@@ -4,10 +4,9 @@ By listing the first six prime numbers: 2,3,5,7, 11 , and 13,
 we can see that the 6th prime is 13. What is the  10,0001st prime number?
 -/
 
--- import Init.Prelude
+import Mathlib.Data.Nat.Notation
 import Mathlib.Data.Nat.Prime.Basic
 import Mathlib.Data.Stream.Defs
---import Mathlib.Data.Nat.Fib.Basic
 
 /-- Finds the next prime strictly greater than n -/
 partial def nextPrime (n : Nat) : Nat :=
@@ -23,3 +22,5 @@ def primeStream : Stream' ℕ
 
 -- Test the output
 #eval (primeStream.drop 10_000) 0 -- 104743
+
+example : (primeStream.drop 10_000) 0 = 104743 := by native_decide

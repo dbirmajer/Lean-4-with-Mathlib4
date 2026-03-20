@@ -13,12 +13,12 @@ import Mathlib.Data.Nat.Fib.Basic
 
 def fibStream : Stream' Nat := fun n  => Nat.fib n
 
-partial def takeWhile (α : Type) (s : Stream' α) (p : α -> Bool) (accum : List α := []): List α :=
+partial def takeWhile {α : Type} (s : Stream' α) (p : α -> Bool) (accum : List α := []): List α :=
   let x  := s.head
-  if p x then takeWhile α (s.tail) p (x :: accum) else accum
+  if p x then takeWhile (s.tail) p (x :: accum) else accum
 
 def euler_04 :=
-  let list := takeWhile Nat fibStream (fun x => x < 4_000_000)
+  let list := takeWhile fibStream (fun x => x < 4_000_000)
   list.filter (fun x => x % 2 == 0) |>.sum
 
 #eval euler_04

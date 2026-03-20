@@ -16,16 +16,14 @@ def sumMultiples (n : ℕ) : ℕ :=
 
 #eval sumMultiples 1_000 -- 233168
 
-#eval((List.range 1_000).filter (fun x => x % 3 == 0 || x % 5 == 0)).sum
--- 233168
+def solution :=
+  List.range 1_000
+  |> List.filter (fun x => x % 3 == 0 || x % 5 == 0)
+  |> List.sum
 
--- example : problem1Numbers 10 = [0, 3, 5, 6, 9] := by native_decide
+#eval solution -- 233168
 
--- example : problem1Answer = 233168 := by native_decide
-
--- end ProjectEuler
-
-example : (List.range 10).filter (fun x => decide (x % 3 == 0) || decide (x % 5 == 0))
+example : (List.range 10).filter (fun x => decide (x % 3 = 0) || decide (x % 5 = 0))
   = [0, 3, 5, 6, 9] := by decide
 
 example : (List.range 10).filter (fun x => x % 3 == 0 || x % 5 == 0)

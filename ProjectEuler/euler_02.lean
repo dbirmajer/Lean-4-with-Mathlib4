@@ -8,10 +8,13 @@ By considering the terms in the Fibonacci sequence whose values
 do not exceed four million, find the sum of the even-valued terms.
 -/
 
+-- Using the Unicode ℕ symbol (requires import)
+import Mathlib.Data.Nat.Notation
+
 import Mathlib.Data.Stream.Defs
 import Mathlib.Data.Nat.Fib.Basic
 
-def fibStream : Stream' Nat := fun n  => Nat.fib n
+def fibStream : Stream' ℕ := fun n  => Nat.fib n
 
 partial def takeWhile {α : Type} (s : Stream' α) (p : α -> Bool) (accum : List α := []): List α :=
   let x  := s.head
@@ -21,4 +24,4 @@ def euler_04 :=
   let list := takeWhile fibStream (fun x => x < 4_000_000)
   list.filter (fun x => x % 2 == 0) |>.sum
 
-#eval euler_04
+example : euler_04 = 4613732 := by native_decide

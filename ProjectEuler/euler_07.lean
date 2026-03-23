@@ -19,8 +19,5 @@ def primeStream : Stream' ℕ
   | 0     => 2
   | n + 1 => nextPrime (primeStream n)
 
-
 -- Test the output
-#eval (primeStream.drop 10_000) 0 -- 104743
-
 example : (primeStream.drop 10_000) 0 = 104743 := by native_decide
